@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class Lamp extends Model
 {
@@ -11,4 +12,9 @@ class Lamp extends Model
     use HasFactory;
     protected $fillable = ['name',
     'status'];
+
+    public function histories()
+    {
+        return $this->hasMany(History::class);
+    }
 }
